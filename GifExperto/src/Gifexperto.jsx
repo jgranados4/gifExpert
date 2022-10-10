@@ -1,0 +1,34 @@
+import { useState } from 'react';
+import { AddCategory } from './componentes/AddCategory';
+import { GifGrid } from './componentes/GifGrid';
+
+
+export const GifExpertApp=()=>{
+  const [categoria, setcategoria] = useState(['one punch'])
+  const onAddcategory=(NewCategoria)=>{
+    // !validar solo buscar un elemento
+    if(categoria.includes(NewCategoria)) return;
+    // categoria.push(NewCategoria)
+    setcategoria([NewCategoria,...categoria]);
+    // setcategoria(cat =>[...cat,'valorant']);
+  }
+  return (
+    <>
+      <h1>GifExpertApp</h1>
+      <AddCategory
+      onNewCategoria={ event=>onAddcategory(event)}
+      // setcategoria={setcategoria}
+      />
+      {/* <button onClick={onAddcategory}>Agregar</button> */}
+        {categoria.map((category) =>
+           (
+            <div key={category} >
+              <GifGrid key={category}
+              category={category}
+              />
+            </div>
+          )
+        )}
+    </>
+  );
+}
