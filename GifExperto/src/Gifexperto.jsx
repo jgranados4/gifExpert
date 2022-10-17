@@ -4,7 +4,8 @@ import { GifGrid } from './componentes/GifGrid';
 
 
 export const GifExpertApp=()=>{
-  const [categoria, setcategoria] = useState(['one punch'])
+  const [categoria, setcategoria] = useState(['one punch']);
+  // Agregar input
   const onAddcategory=(NewCategoria)=>{
     // !validar solo buscar un elemento
     if(categoria.includes(NewCategoria)) return;
